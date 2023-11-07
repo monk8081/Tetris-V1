@@ -40,11 +40,11 @@ https://archive.eksworkshop.com/intermediate/290_argocd/install/
 ```
  environment {
     GIT_REPO_NAME = "Tetris-manifest"
-    GIT_USER_NAME = "Aj7Ay"
+    GIT_USER_NAME = "monk8081"
   }
     stage('Checkout Code') {
       steps {
-        git branch: 'main', url: 'https://github.com/Aj7Ay/Tetris-manifest.git'
+        git branch: 'main', url: 'https://github.com/monk8081/Tetris-manifest.git'
       }
     }
 
@@ -53,7 +53,7 @@ https://archive.eksworkshop.com/intermediate/290_argocd/install/
         script {
           withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
             // Determine the image name dynamically based on your versioning strategy
-            NEW_IMAGE_NAME = "sevenajay/tetris77:latest"
+            NEW_IMAGE_NAME = "mmaurya694/tetrisv2:latest"
 
             // Replace the image name in the deployment.yaml file
             sh "sed -i 's|image: .*|image: $NEW_IMAGE_NAME|' deployment.yml"
